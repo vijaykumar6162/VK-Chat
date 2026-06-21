@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VK Chat Dashboard</title>
 
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f7fc;
+}
+
+.header{
+    background:#0084ff;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.container{
+    width:90%;
+    max-width:800px;
+    margin:30px auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom:20px;
+}
+
+button{
+    background:#0084ff;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0066cc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>VK Chat Dashboard</h1>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Welcome</h2>
+        <p id="userEmail"></p>
+    </div>
+
+    <div class="card">
+        <h3>Chat Room</h3>
+        <button onclick="openChat()">Open Chat</button>
+    </div>
+
+    <div class="card">
+        <h3>Account</h3>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+</div>
+
+<script>
+document.getElementById("userEmail").innerText =
+"Logged in as: " + localStorage.getItem("email");
+
+function openChat(){
+    window.location.href="chat.html";
+}
+
+function logout(){
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+    window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>
